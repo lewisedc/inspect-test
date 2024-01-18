@@ -33,12 +33,12 @@ function main() {
   let initialMouse = 0;
   let initialIndex = 0;
 
-  canvas.addEventListener("pointerdown", (e) => {
+  document.addEventListener("pointerdown", (e) => {
     initialMouse = e.clientX;
     initialIndex = index;
   });
 
-  canvas.addEventListener("pointermove", (e) => {
+  document.addEventListener("pointermove", (e) => {
     if (e.buttons === 1) {
       const changeMouse = e.clientX - initialMouse;
 
