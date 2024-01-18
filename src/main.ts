@@ -5,14 +5,8 @@ function main() {
   const context = canvas.getContext("2d")!;
   context.imageSmoothingEnabled = false;
 
-  function resizeCanvas() {
-    console.log(window.innerWidth, window.innerHeight);
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-  }
-
-  resizeCanvas();
-  window.addEventListener("resize", resizeCanvas);
+  canvas.width = 2560;
+  canvas.height = 1440;
 
   let images: HTMLImageElement[] = [];
 

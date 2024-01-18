@@ -8,6 +8,7 @@ body::before {
   background-image: url("https://cdn.inspect.skin/assets/bg_vertigo.png");
   background-size: cover;
   background-repeat: no-repeat;
+  filter: blur(4px);
 }
 
 canvas {
