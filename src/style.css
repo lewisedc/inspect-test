@@ -1,3 +1,11 @@
+body {
+  cursor: grab;
+}
+
+.dragging body {
+  cursor: grabbing;
+}
+
 body::before {
   content: "";
   position: fixed;
@@ -18,4 +26,5 @@ canvas {
   aspect-ratio: 16/9;
   width: 100%;
   transform: translate(-50%, -50%);
+  cursor: inherit;
 }

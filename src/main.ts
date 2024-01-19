@@ -27,9 +27,19 @@ function main() {
   let initialMouse = 0;
   let initialIndex = 0;
 
+  let timeout: number | undefined;
+  let interval = setInterval(() => {
+    index = (index + 1) % IMAGES_COUNT;
+  }, 50);
+
   document.addEventListener("pointerdown", (e) => {
+    clearTimeout(timeout);
+    clearInterval(interval);
+
     initialMouse = e.clientX;
     initialIndex = index;
+
+    document.documentElement.classList.add("dragging");
   });
 
   document.addEventListener("pointermove", (e) => {
@@ -39,6 +49,16 @@ function main() {
       const indexChange = Math.floor(initialIndex + changeMouse / 50);
       index = ((indexChange % IMAGES_COUNT) + IMAGES_COUNT) % IMAGES_COUNT;
     }
+  });
+
+  document.addEventListener("pointerup", (e) => {
+    document.documentElement.classList.remove("dragging");
+
+    timeout = setTimeout(() => {
+      interval = setInterval(() => {
+        index = (index + 1) % IMAGES_COUNT;
+      }, 50);
+    }, 5000);
   });
 }
 
